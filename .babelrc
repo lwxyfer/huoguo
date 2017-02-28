@@ -1,0 +1,10 @@
+{
+  "presets": [["env", {"modules": false}], "react"],
+  // "presets": ["latest", "react"],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-class-properties"
+    ]
+}
+
+// use tree shake https://medium.com/webpack/webpack-2-and-beyond-40520af9067f#.nns2se6wl
