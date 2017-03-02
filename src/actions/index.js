@@ -6,7 +6,7 @@ export const addTodo = (text, index) => ({
   type: 'ADD_TODO',
   id: nextTodoId++,
   text,
-  index
+  index // 可以放到reducer ，但是不保存数据，作为额外的参数使用
 })
 
 export const setVisibilityFilter = (filter) => ({
@@ -37,7 +37,7 @@ export const addList = (title) => ({
 })
 
 export const setListIndex = (index) => ({
-  type: 'SET_LIST_INDEX',
+  type: 'SET_SELECTED_LIST',
   index
 })
 

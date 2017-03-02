@@ -3,9 +3,9 @@ import { setListIndex, setPage } from '../actions'
 import TodoLists from '../components/TodoLists'
 
 const mapStateToProps = (state) => ({
-  todolists: state.todolists
+  todolists: state.data.lists || []
 })
- 
+
 const mapDispatchToProps = ({
   onTodoListsClick: setListIndex,
   onSetPage: setPage

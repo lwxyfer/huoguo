@@ -64,7 +64,7 @@ const todos = (state, action) => {
   }
 }
 
-const list = (state, action) => {
+const list = (state, action, index) => {
   switch (action.type) {
     case 'ADD_LIST':
       return {
@@ -73,37 +73,73 @@ const list = (state, action) => {
         todos: []
       }
     case 'ADD_TODO':
-      if(state.index !== state.listIndex) {
+      if(state.index !== index) {
         return state
       }
       return Object.assign({}, state, {todos: todos(state.todos, action)})
     case 'TOGGLE_TODO':
-      if(state.index !== state.listIndex) {
+      if(state.index !== index) {
         return state
       }
       return Object.assign({}, state, {todos: todos(state.todos, action)})
   }
 }
 
-const todolists = (state = [], action) => {
-  switch (action.type) {
+const lists = (state, action, index) => {
+  switch(action.type) {
     case 'ADD_LIST':
-      return [
-        ...state,
-        list(undefined, action)
-      ]
+      return {
+        lists: [
+          ...state,
+          list(undefined, action)
+        ]
+      }
     case 'ADD_TODO':
-    // action has no index
-      return state.map(t =>
-        list(t, action)
-      )
+      return {
+        lists: state.map(t =>
+          list(t, action, index)
+        )
+      }
     case 'TOGGLE_TODO':
-      return state.map(t =>
-        list(t, action)
-      )
+      return {
+        lists: state.map(t =>
+          list(t, action, index)
+        )
+      }
     default:
       return state
   }
 }
- 
-export default todolists
+
+const defaultState = {
+  selectIndex: 0,
+  page: 'list', 
+  listNum: 0,
+  visibilityFilter: 'SHOW_ALL',
+  lists: []
+}
+
+const data = (state = defaultState, action) => {
+  switch (action.type) {
+    case 'SET_SELECTED_LIST':
+      let selectIndex = action.index;
+      console.log('sesese', selectIndex)
+      return Object.assign({}, state, {selectIndex})
+    case 'SET_PAGE':
+      let page = action.page;
+      return Object.assign({}, state, {page})
+    case 'SET_VISIBILITY_FILTER':
+      let visibilityFilter = action.visibilityFilter
+      return Object.assign({}, state, {visibilityFilter})
+    case 'ADD_LIST':
+    case 'ADD_TODO':
+    case 'TOGGLE_TODO':
+      console.log(state)
+      return Object.assign({}, state, lists(state.lists, action, state.selectIndex))
+    case 'SET_LISTINDEX':
+    default:
+      return state
+  }
+}
+
+export default data

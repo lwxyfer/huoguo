@@ -2,8 +2,9 @@ import { connect } from 'react-redux'
 import { toggleTodo, toggleLove, triggerClock } from '../actions'
 import TodoList from '../components/TodoList'
 
-const getVisibleTodos = (todos, filter) => {
-  todos = (todos.todolists[todos.listIndex] && todos.todolists[todos.listIndex].todos) || [];
+// set default value
+const getVisibleTodos = (todos, filter) => { 
+  todos = (todos.lists[todos.selectIndex] && todos.lists[todos.selectIndex].todos) || [];
   console.log(todos)
   switch (filter) {
     case 'SHOW_ALL':
@@ -18,7 +19,7 @@ const getVisibleTodos = (todos, filter) => {
 }
 
 const mapStateToProps = (state) => ({
-  todos: getVisibleTodos(state, state.visibilityFilter)
+  todos: getVisibleTodos(state.data, state.data.visibilityFilter)
 })
 
 const mapDispatchToProps = ({

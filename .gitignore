@@ -8,4 +8,4 @@ dist
 
 # misc
 .DS_Store
-npm-debug.log
+npm-debug.log*

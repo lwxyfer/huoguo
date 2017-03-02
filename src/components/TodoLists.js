@@ -3,7 +3,7 @@ import Item from './Item'
 
 const TodoLists = ({ todolists, onTodoListsClick, onSetPage}) => (
   <ul>
-    {console.log(todolists)}
+    {console.log('todolosts', todolists)}
     {todolists.map(todolist =>
       <Item
         key={todolist.index}

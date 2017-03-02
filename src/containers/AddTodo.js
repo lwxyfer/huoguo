@@ -23,8 +23,8 @@ class AddTodo extends React.Component {
       return
     }
 
-    const page = store.getState().page;
-    const index = store.getState().listIndex;
+    const page = store.getState().data.page
+    const index = store.getState().data.selectIndex
     if( page === 'list') {
       this.props.dispatch(addList(this.state.value))
     }  else if (page === 'todo') {
@@ -39,7 +39,6 @@ class AddTodo extends React.Component {
     let input
     return (
       <div>
-        <form>
           <TextField
             hintText="Your todo task"
             value={this.state.value}
@@ -49,7 +48,6 @@ class AddTodo extends React.Component {
             label="addTODO"
             onClick={this.handleSubmit}
           />
-        </form>
       </div>
     )
   }
