@@ -17,14 +17,14 @@ class AddTodo extends React.Component {
       value: event.target.value,
     });
   };
-  handleSubmit = (e) => {
-    e.preventDefault()
+  handleSubmit = () => {
     if (!this.state.value.trim()) {
       return
     }
 
-    const page = store.getState().data.page
-    const index = store.getState().data.selectIndex
+    const curStore = store.getState().data
+    const page = curStore.page
+    const index = curStore.selectIndex
     if( page === 'list') {
       this.props.dispatch(addList(this.state.value))
     }  else if (page === 'todo') {
@@ -35,6 +35,9 @@ class AddTodo extends React.Component {
       value: '',
     });
   }
+  handleEnter = (e) => {
+    e.key === 'Enter' ? this.handleSubmit() : ''
+  }
   render() {
     let input
     return (
@@ -43,6 +46,7 @@ class AddTodo extends React.Component {
             hintText="Your todo task"
             value={this.state.value}
             onChange={this.handleChange}
+            onKeyPress={this.handleEnter}
           />
           <RaisedButton 
             label="addTODO"

@@ -111,32 +111,33 @@ const lists = (state, action, index) => {
   }
 }
 
+//TODO: if data level is too deep, how to set dafault value?
 const defaultState = {
   selectIndex: 0,
   page: 'list', 
-  listNum: 0,
   visibilityFilter: 'SHOW_ALL',
   lists: []
 }
 
+
 const data = (state = defaultState, action) => {
+  const oass = (obj) => (
+    Object.assign({}, state, obj)
+  )
   switch (action.type) {
     case 'SET_SELECTED_LIST':
       let selectIndex = action.index;
-      console.log('sesese', selectIndex)
-      return Object.assign({}, state, {selectIndex})
+      return oass({selectIndex})
     case 'SET_PAGE':
       let page = action.page;
-      return Object.assign({}, state, {page})
+      return oass({page})
     case 'SET_VISIBILITY_FILTER':
       let visibilityFilter = action.visibilityFilter
-      return Object.assign({}, state, {visibilityFilter})
+      return oass({visibilityFilter})
     case 'ADD_LIST':
     case 'ADD_TODO':
     case 'TOGGLE_TODO':
-      console.log(state)
-      return Object.assign({}, state, lists(state.lists, action, state.selectIndex))
-    case 'SET_LISTINDEX':
+      return oass(lists(state.lists, action, state.selectIndex))
     default:
       return state
   }
