@@ -1,17 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import store from '../index'
 import { addTodo, addList } from '../actions'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
+import store from '../store'
+
 class AddTodo extends React.Component {
+
   constructor(props) {
     super(props)
     this.state = {
       value: '',
     };
   }
+
   handleChange = (event) => {
     this.setState({
       value: event.target.value,
@@ -48,7 +51,7 @@ class AddTodo extends React.Component {
             onChange={this.handleChange}
             onKeyPress={this.handleEnter}
           />
-          <RaisedButton 
+          <RaisedButton
             label="addTODO"
             onClick={this.handleSubmit}
           />
@@ -56,12 +59,6 @@ class AddTodo extends React.Component {
     )
   }
 }
-// If you do not provide your own mapDispatchToProps function when calling connect(), React Redux will provide a default version, which simply returns the dispatch function as a prop.
-// const mapDispatchToProps = (dispatch, ownProps) => ({
-//   onClick: () => {
-//     dispatch(setVisibilityFilter(ownProps.filter))
-//   }
-// })
 
 AddTodo = connect()(AddTodo)
 

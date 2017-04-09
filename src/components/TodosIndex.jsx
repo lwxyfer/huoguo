@@ -6,15 +6,24 @@ import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
 import Lists from '../containers/Lists';
 
+import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
-import ActionHome from 'material-ui/svg-icons/hardware/cast';
+import Backspace from 'material-ui/svg-icons/hardware/keyboard-backspace';
 
-const App = () => (
+const Icon = (
+  <Link to="/"><IconButton><Backspace /></IconButton></Link>
+);
+
+export const TodoPage = () => (
   <div>
-    <Title title="List" />
+    <AppBar
+      title="todo"
+      iconElementLeft={Icon}
+    />
     <AddTodo />
-    <Lists />
+    <VisibleTodoList />
+    <Footer />
   </div>
 );
 
-export default App;
+export default TodoPage;

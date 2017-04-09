@@ -1,25 +1,26 @@
-import { connect } from 'react-redux'
-import { setListIndex, setPage } from '../actions'
-import TodoLists from '../components/TodoLists'
+import { connect } from 'react-redux';
+import { setListIndex, setPage } from '../actions';
+import TodoLists from '../components/TodoLists';
 
-const todoLength = (data) => (
+// TODO: 多层嵌套的对象，需要确保每层都在。如果层级深了，是很麻烦的。
+const todoLength = data => (
   data.lists[data.selectIndex] && data.lists[data.selectIndex].todos.length || 0
-)
+);
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   todolists: state.data.lists || [],
   listlength: state.data.lists.length,
-  todolength: todoLength(state.data)
-})
+  todolength: todoLength(state.data),
+});
 
 const mapDispatchToProps = ({
   onTodoListsClick: setListIndex,
-  onSetPage: setPage
-})
+  onSetPage: setPage,
+});
 
 const Lists = connect(
   mapStateToProps,
-  mapDispatchToProps
-)(TodoLists)
+  mapDispatchToProps,
+)(TodoLists);
 
-export default Lists
+export default Lists;

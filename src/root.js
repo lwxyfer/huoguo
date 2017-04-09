@@ -1,20 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Router, Route, browserHistory } from 'react-router'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import createLogger from 'redux-logger'
-import {App, TodoPage} from './components/App'
+import React from 'react';
+import { Router, Route, browserHistory, Link } from 'react-router';
+import { Provider } from 'react-redux';
+import App from './components/App';
+import TodoPage from './components/TodosIndex';
 
-const Root = ({store}) => (
+const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={App} >
-        
-      <Route path="/todos" component={TodoPage} />
-      </Route>
+      <Route exact path="/" component={App} />
+      <Route path="/todo" component={TodoPage} />
     </Router>
   </Provider>
 );
 
-export default Root
+export default Root;
