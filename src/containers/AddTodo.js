@@ -19,7 +19,8 @@ class AddTodo extends React.Component {
     this.setState({
       value: event.target.value,
     });
-  };
+  }
+
   handleSubmit = () => {
     if (!this.state.value.trim()) {
       return
@@ -28,6 +29,7 @@ class AddTodo extends React.Component {
     const curStore = store.getState().data
     const page = curStore.page
     const index = curStore.selectIndex
+    
     if( page === 'list') {
       this.props.dispatch(addList(this.state.value))
     }  else if (page === 'todo') {
@@ -38,23 +40,30 @@ class AddTodo extends React.Component {
       value: '',
     });
   }
+
   handleEnter = (e) => {
     e.key === 'Enter' ? this.handleSubmit() : ''
   }
+
   render() {
-    let input
+    let {
+      label,
+      text,
+      ...props
+    } = this.props;
+
     return (
       <div>
-          <TextField
-            hintText="Your todo task"
-            value={this.state.value}
-            onChange={this.handleChange}
-            onKeyPress={this.handleEnter}
-          />
-          <RaisedButton
-            label="addTODO"
-            onClick={this.handleSubmit}
-          />
+        <TextField
+          hintText={text}
+          value={this.state.value}
+          onChange={this.handleChange}
+          onKeyPress={this.handleEnter}
+        />
+        <RaisedButton
+          label={label}
+          onClick={this.handleSubmit}
+        />
       </div>
     )
   }

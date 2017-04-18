@@ -20,6 +20,9 @@ import {
 injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({
+  appBar: {
+    height: 50,
+  },
   palette: {
     primary1Color: red500,
     primary2Color: red200,

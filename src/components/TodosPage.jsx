@@ -6,21 +6,24 @@ import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
 import Lists from '../containers/Lists';
 
-import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import Backspace from 'material-ui/svg-icons/hardware/keyboard-backspace';
 
+const iconStyle = {
+  color: '#fff',
+};
+
 const Icon = (
-  <Link to="/"><IconButton><Backspace /></IconButton></Link>
+  <Link to="/"><IconButton iconStyle={iconStyle} ><Backspace /></IconButton></Link>
 );
 
 export const TodoPage = () => (
   <div>
-    <AppBar
+    <Title
       title="todo"
       iconElementLeft={Icon}
     />
-    <AddTodo />
+    <AddTodo label="Next" text="添加任务" />
     <VisibleTodoList />
     <Footer />
   </div>
