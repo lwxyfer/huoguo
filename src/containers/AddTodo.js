@@ -29,10 +29,11 @@ class AddTodo extends React.Component {
     const curStore = store.getState().data
     const page = curStore.page
     const index = curStore.selectIndex
-    
+
     if( page === 'list') {
       this.props.dispatch(addList(this.state.value))
     }  else if (page === 'todo') {
+      console.log('todo page')
       this.props.dispatch(addTodo(this.state.value, index))
     }
 

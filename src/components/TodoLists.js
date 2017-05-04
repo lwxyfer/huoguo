@@ -2,16 +2,17 @@ import React, { PropTypes } from 'react';
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 
-import { Link } from 'react-router';
+import {
+  Link,
+} from 'react-router-dom';
 
 import Item from './Item';
 
 const TodoLists = ({ todolists, onTodoListsClick, onSetPage, listlength, todolength }) => (
   <List>
-    {/* {console.log('todolosts', todolists)}*/}
     <Subheader>你的清单：{listlength} </Subheader>
     {todolists.map(todolist =>
-      <Link to="/todo" key={todolist.index}>
+      <Link to={`/todo/${todolist.index}`} key={todolist.index}>
         <Item
           key={todolist.index}
           setList={() => {
@@ -28,7 +29,7 @@ const TodoLists = ({ todolists, onTodoListsClick, onSetPage, listlength, todolen
 
 TodoLists.propTypes = {
   todolists: PropTypes.arrayOf(PropTypes.shape({
-    index: PropTypes.number.isRequired,
+    index: PropTypes.string.isRequired,
     todos: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired).isRequired,

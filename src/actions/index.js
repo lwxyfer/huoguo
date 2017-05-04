@@ -1,47 +1,49 @@
-let index = 0
-let nextTodoId = 0
+import { v4 } from 'node-uuid';
+
+const indexV4 = () => v4();
+const nextTodoId = () => v4();
 
 // 每加一层就需要加一个索引
 export const addTodo = (text, index) => ({
   type: 'ADD_TODO',
-  id: nextTodoId++,
+  id: nextTodoId(),
+  index: index || indexV4(), // 可以放到reducer ，但是不保存数据，作为额外的参数使用
   text,
-  index // 可以放到reducer ，但是不保存数据，作为额外的参数使用
-})
+});
 
-export const setVisibilityFilter = (filter) => ({
+export const setVisibilityFilter = filter => ({
   type: 'SET_VISIBILITY_FILTER',
-  filter
-})
+  filter,
+});
 
-export const toggleTodo = (id) => ({
+export const toggleTodo = id => ({
   type: 'TOGGLE_TODO',
-  id
-})
+  id,
+});
 
-export const triggerClock = (id) => ({
+export const triggerClock = id => ({
   type: 'TRIGGER_CLOCK',
-  id
-})
+  id,
+});
 
-export const toggleLove = (id) => ({
+export const toggleLove = id => ({
   type: 'TOGGLE_LOVE',
-  id
-})
+  id,
+});
 
 // for LISTS
-export const addList = (title) => ({
+export const addList = title => ({
   type: 'ADD_LIST',
-  index: index++,
-  title
-})
+  index: indexV4(),
+  title,
+});
 
-export const setListIndex = (index) => ({
+export const setListIndex = index => ({
   type: 'SET_SELECTED_LIST',
-  index
-})
+  index,
+});
 
-export const setPage = (page) => ({
+export const setPage = page => ({
   type: 'SET_PAGE',
-  page
-})
+  page,
+});
