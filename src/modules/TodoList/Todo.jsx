@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { List, ListItem } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
-import LoveIcon from './LoveIcon';
+import LoveIcon from '../../common/LoveIcon';
 import IconButton from 'material-ui/IconButton';
 import FavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import Favorite from 'material-ui/svg-icons/action/favorite';

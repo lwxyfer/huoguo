@@ -5,8 +5,8 @@ import {
   Switch,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import App from './components/App';
-import TodoPage from './components/TodosPage';
+import App from './modules/App';
+import TodoPage from './modules/TodosPage';
 
 const Root = ({ store }) => (
   <Provider store={store}>

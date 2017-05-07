@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo, addList } from '../actions'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
-import store from '../store'
+import { addTodo, addList } from '../../actions'
+import store from '../../store'
 
 class AddTodo extends React.Component {
 

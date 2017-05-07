@@ -1,6 +1,6 @@
-import { connect } from 'react-redux'
-import { setVisibilityFilter } from '../actions'
-import Link from '../components/Link'
+import { connect } from 'react-redux';
+import { setVisibilityFilter } from '../../actions';
+import Link from './Link';
 
 // store updated to call this
 // 调用的就是 mapStateToProps 而不是其他的
@@ -8,19 +8,19 @@ import Link from '../components/Link'
 // 与此就不用通过 react 的生命周期来设置属性和更新状态
 // shouldCompnentUpdate
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter === state.visibilityFilter
-})
+  active: ownProps.filter === state.visibilityFilter,
+});
 
 // function
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onClick: () => {
-    dispatch(setVisibilityFilter(ownProps.filter))
-  }
-})
+    dispatch(setVisibilityFilter(ownProps.filter));
+  },
+});
 
 const FilterLink = connect(
   mapStateToProps,
-  mapDispatchToProps
-)(Link)
+  mapDispatchToProps,
+)(Link);
 
-export default FilterLink
+export default FilterLink;

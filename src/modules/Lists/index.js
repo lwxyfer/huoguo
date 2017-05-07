@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { setListIndex, setPage } from '../actions';
-import TodoLists from '../components/TodoLists';
+import { setListIndex, setPage } from '../../actions';
+import TodoLists from './TodoLists';
 
 // TODO: 多层嵌套的对象，需要确保每层都在。如果层级深了，是很麻烦的。
 const todoLength = data => (

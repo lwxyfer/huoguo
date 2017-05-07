@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { toggleTodo, toggleLove, triggerClock } from '../actions';
-import TodoList from '../components/TodoList';
+import { toggleTodo, toggleLove, triggerClock } from '../../actions';
+import TodoList from './TodoList';
 
 // set default value
 const getVisibleTodos = (allTodos, filter) => {

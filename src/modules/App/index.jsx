@@ -1,15 +1,15 @@
 import React from 'react';
 import { GridList, GridTile } from 'material-ui/GridList';
-import Title from './Title';
-import AddTodo from '../containers/AddTodo';
-import Lists from '../containers/Lists';
+import Title from '../../common/Title';
+import AddTodo from '../AddTodo';
+import Lists from '../Lists';
 
 import {
   BrowserRouter as Router,
   Route,
   Link,
 } from 'react-router-dom';
-import TodosPage from './TodosPage';
+import TodosPage from '../TodosPage';
 
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';

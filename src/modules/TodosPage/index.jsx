@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Title from './Title';
-import Footer from './Footer';
-import AddTodo from '../containers/AddTodo';
-import VisibleTodoList from '../containers/VisibleTodoList';
-import Lists from '../containers/Lists';
+import Title from '../../common/Title';
+import Footer from '../Footer';
+import AddTodo from '../AddTodo';
+import VisibleTodoList from '../TodoList';
+import Lists from '../Lists';
 
 import IconButton from 'material-ui/IconButton';
 import Backspace from 'material-ui/svg-icons/hardware/keyboard-backspace';

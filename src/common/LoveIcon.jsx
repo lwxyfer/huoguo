@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react'
-import IconButton from 'material-ui/IconButton'
-import FavoriteBorder from 'material-ui/svg-icons/action/favorite-border'
-import Favorite from 'material-ui/svg-icons/action/favorite'
+import React, { PropTypes } from 'react';
+import IconButton from 'material-ui/IconButton';
+import FavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+import Favorite from 'material-ui/svg-icons/action/favorite';
 
-/*export default class LoveIcon extends React.Component {
+/* export default class LoveIcon extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,14 +27,14 @@ import Favorite from 'material-ui/svg-icons/action/favorite'
   }
 }*/
 
-const LoveIcon = ({onClick}) => (
+const LoveIcon = ({ onClick }) => (
   <IconButton
     tooltip="love"
-    onClick={(e) => {e.preventDefault(); onClick()}}
+    onClick={(e) => { e.preventDefault(); onClick(); }}
   >
-     <Favorite />
+    <Favorite />
   </IconButton>
-)
+);
 
 
-export default LoveIcon
+export default LoveIcon;
