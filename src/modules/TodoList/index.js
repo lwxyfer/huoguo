@@ -4,11 +4,14 @@ import TodoList from './TodoList';
 
 // set default value
 const getVisibleTodos = (allTodos, filter) => {
-  console.log('todos', todos);
+  console.log('todos', allTodos);
 
-  const todos = allTodos.lists.filter(list =>
+  let todos = Array.isArray(allTodos.lists) &&
+  allTodos.lists.filter(list =>
     list.index === allTodos.selectIndex,
-  )[0].todos;
+  ).pop();
+  console.log('todos filter', todos);
+  todos = todos && todos.todos.length > 0 ? todos.todos : [];
 
   console.log('i am data', todos);
   switch (filter) {

@@ -15,7 +15,7 @@ import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
-const App = () => (
+const App = ({ match }) => (
   <div>
     <GridList
       cellHeight={800}
@@ -26,8 +26,9 @@ const App = () => (
         <Lists />
       </GridTile>
       <GridTile>
+        {match.params.listId}
         <Route exact path="/" render={() => <div>world</div>} />
-        <Route path="/todo" component={TodosPage} />
+        <Route path="/todo/:listId" component={TodosPage} />
       </GridTile>
     </GridList>
   </div>

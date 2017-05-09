@@ -12,8 +12,8 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={App} />
-        <Route path="/todo" component={App} />
+        <Route path="/" component={App} />
+        <Route path="/todo/:listId" component={App} />
         <Route path="*" render={() => <div>404</div>} />
       </Switch>
     </Router>
