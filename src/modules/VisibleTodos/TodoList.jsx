@@ -4,16 +4,18 @@ import Divider from 'material-ui/Divider';
 import List from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 
-const TodoList = ({ todos, onTodoClick, onToggleLove, onTriggerClock }) => (
+import TodoItem from '../TodoItem';
+
+const TodoList = ({ todos, onTodoClick, onToggleLove, onTriggerClock, selectIndex }) => (
   <List>
-    <Subheader>TODOS： </Subheader>
+    <Subheader>TODOS： { selectIndex }</Subheader>
     {todos.map(todo =>
-      <Todo
+      <TodoItem
         key={todo.id}
         {...todo}
-        toggleTodo={() => onTodoClick(todo.id)}
-        toggleLove={() => onToggleLove(todo.id)}
-        triggerClock={() => onTriggerClock(todo.id)}
+        handleToggle={() => onTodoClick(todo.id, selectIndex)}
+        handleLove={() => onToggleLove(todo.id, selectIndex)}
+        triggerClock={() => onTriggerClock(todo.id, selectIndex)}
       />,
     )}
   </List>

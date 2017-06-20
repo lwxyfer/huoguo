@@ -7,7 +7,8 @@ const nextTodoId = () => v4();
 export const addTodo = (text, index) => ({
   type: 'ADD_TODO',
   id: nextTodoId(),
-  index: index || indexV4(), // 可以放到reducer ，但是不保存数据，作为额外的参数使用
+  date: Date.now(),
+  selectIndex: index || indexV4(), // 可以放到reducer ，但是不保存数据，作为额外的参数使用
   text,
 });
 
@@ -16,9 +17,10 @@ export const setVisibilityFilter = filter => ({
   filter,
 });
 
-export const toggleTodo = id => ({
+export const toggleTodo = (id, selectIndex) => ({
   type: 'TOGGLE_TODO',
   id,
+  selectIndex,
 });
 
 export const triggerClock = id => ({
@@ -26,15 +28,17 @@ export const triggerClock = id => ({
   id,
 });
 
-export const toggleLove = id => ({
+export const toggleLove = (id, selectIndex) => ({
   type: 'TOGGLE_LOVE',
   id,
+  selectIndex,
 });
 
 // for LISTS
 export const addList = title => ({
   type: 'ADD_LIST',
-  index: indexV4(),
+  index: indexV4(), 
+  date: Date.now(),
   title,
 });
 

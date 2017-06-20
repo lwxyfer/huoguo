@@ -6,22 +6,22 @@ import IconButton from 'material-ui/IconButton';
 import FavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import Favorite from 'material-ui/svg-icons/action/favorite';
 
-const IconButtonElement = ({ onClick }) => (
+const IconButtonElement = ({ toggleLove, love }) => (
   <IconButton
     touch
     tooltip="more"
-    onClick={onClick}
+    onClick={toggleLove}
   >
-    <Favorite />
+    { love ? <Favorite color="red" /> : <Favorite /> }
   </IconButton>
 );
 
-const Todo = ({ toggleTodo, toggleLove, completed, text, number, triggerClock, isChecked }) => (
+const Todo = ({ toggleTodo, toggleLove, completed, love, text, number, triggerClock, isChecked }) => (
   <ListItem
     leftCheckbox={<Checkbox onCheck={toggleTodo} checked={completed} />}
     primaryText={text}
     secondaryText={number || 0}
-    /* rightIconButton={<IconButtonElement onClick={toggleLove} />}*/
+    rightIconButton={<IconButtonElement toggleLove={toggleLove} love={love} />}
   />
 );
 

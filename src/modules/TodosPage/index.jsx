@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import IconButton from 'material-ui/IconButton';
+import Backspace from 'material-ui/svg-icons/hardware/keyboard-backspace';
+
 import Title from '../../common/Title';
 import Footer from '../Footer';
 import AddTodo from '../AddTodo';
-import VisibleTodoList from '../TodoList';
-import Lists from '../Lists';
+import VisibleTodos from '../VisibleTodos';
 
-import IconButton from 'material-ui/IconButton';
-import Backspace from 'material-ui/svg-icons/hardware/keyboard-backspace';
 
 const iconStyle = {
   color: '#fff',
@@ -17,16 +17,22 @@ const Icon = (
   <Link to="/"><IconButton iconStyle={iconStyle} ><Backspace /></IconButton></Link>
 );
 
-export const TodoPage = () => (
+export const TodosPage = ({ match }) => (
   <div>
     <Title
-      title="todo"
-      iconElementLeft={Icon}
+      title="Todos"
+      showMenuIconButton={false}
+        /*iconElementLeft={Icon}*/     
     />
-    <AddTodo label="Next" text="添加任务" />
-    <VisibleTodoList />
+    <AddTodo
+      label="Next"
+      text="添加任务"
+      selectIndex={match.params.listId}
+      page="todo"
+    />
+    <VisibleTodos selectIndex={match.params.listId} />
     <Footer />
   </div>
 );
 
-export default TodoPage;
+export default TodosPage;

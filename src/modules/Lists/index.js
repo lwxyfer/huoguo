@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
   todolists: state.data.lists || [],
   listlength: state.data.lists.length,
   todolength: todoLength(state.data),
+  selectIndex: state.data.selectIndex,
 });
 
 const mapDispatchToProps = ({

@@ -3,17 +3,18 @@ import { toggleTodo, toggleLove, triggerClock } from '../../actions';
 import TodoList from './TodoList';
 
 // set default value
-const getVisibleTodos = (allTodos, filter) => {
-  console.log('todos', allTodos);
+const getVisibleTodos = (allTodos, filter, selectIndex) => {
+  // 防止报 ReferenceError 的错误，需要一个包装器
+
+  console.log('todos', allTodos, filter, selectIndex);
 
   let todos = Array.isArray(allTodos.lists) &&
   allTodos.lists.filter(list =>
-    list.index === allTodos.selectIndex,
+    list.index === selectIndex,
   ).pop();
-  console.log('todos filter', todos);
+
   todos = todos && todos.todos.length > 0 ? todos.todos : [];
 
-  console.log('i am data', todos);
   switch (filter) {
     case 'SHOW_ALL':
       return todos;
@@ -26,8 +27,9 @@ const getVisibleTodos = (allTodos, filter) => {
   }
 };
 
-const mapStateToProps = state => ({
-  todos: getVisibleTodos(state.data, state.data.visibilityFilter),
+const mapStateToProps = (state, ownProps) => ({
+  todos: getVisibleTodos(state.data, state.data.visibilityFilter, ownProps.selectIndex),
+  selectIndex: ownProps.selectIndex,
 });
 
 const mapDispatchToProps = ({
@@ -36,9 +38,9 @@ const mapDispatchToProps = ({
   onTriggerClock: triggerClock,
 });
 
-const VisibleTodoList = connect(
+const VisibleTodos = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(TodoList);
 
-export default VisibleTodoList;
+export default VisibleTodos;

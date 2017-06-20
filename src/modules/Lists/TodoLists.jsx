@@ -8,7 +8,7 @@ import {
 
 import Item from './Item';
 
-const TodoLists = ({ todolists, onTodoListsClick, onSetPage, listlength, todolength }) => (
+const TodoLists = ({ todolists, onTodoListsClick, onSetPage, listlength, todolength, selectIndex }) => (
   <List>
     <Subheader>你的清单：{listlength} </Subheader>
     {todolists.map(todolist =>
@@ -19,6 +19,7 @@ const TodoLists = ({ todolists, onTodoListsClick, onSetPage, listlength, todolen
             onTodoListsClick(todolist.index);
             onSetPage('todo');
           }}
+          active={selectIndex === todolist.index}
           length={todolist.todos.length || 0}
           {...todolist}
         />
