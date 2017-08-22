@@ -6,6 +6,12 @@ import IconButton from 'material-ui/IconButton';
 import FavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import Favorite from 'material-ui/svg-icons/action/favorite';
 
+const styles = {
+  borderRadius: '3px',
+  marginBottom: '1px',
+  background: '#fff',
+};
+
 const IconButtonElement = ({ toggleLove, love }) => (
   <IconButton
     touch
@@ -22,6 +28,7 @@ const Todo = ({ toggleTodo, toggleLove, completed, love, text, number, triggerCl
     primaryText={text}
     secondaryText={number || 0}
     rightIconButton={<IconButtonElement toggleLove={toggleLove} love={love} />}
+    style={styles}
   />
 );
 

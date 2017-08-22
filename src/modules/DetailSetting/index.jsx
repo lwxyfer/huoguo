@@ -13,6 +13,10 @@ import CreateIcon from 'material-ui/svg-icons/content/create';
 import TodoItem from '../TodoItem';
 
 const styles = {
+  wrap: {
+    paddingLeft: '15px', 
+    paddingright: '15px', 
+  },
   list: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -41,7 +45,7 @@ const DetailList = ({...props}) => (
 )
 
 export const DetailSetting = () => (
-  <div>
+  <div style={styles.wrap}>
     <TodoItem text='我是title' />
     <DetailList>
       <DateRangeIcon style={styles.iconStyle}  />

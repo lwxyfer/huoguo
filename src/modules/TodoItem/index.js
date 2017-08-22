@@ -7,22 +7,32 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
 const styles = {
   root: {
-    height: '60px',
+    height: '46px',
     display: 'flex',
     flexWrap: 'no-wrap',
     alignItems: 'center',
     justifyContent: 'space-between',
+    borderRadius: '3px',
+    marginBottom: '1px',
+    color: '#262626',
+    fontSize: '15px',
+    background: '#fff',
   },
   toggle: {
     maxWidth: '50px',
+    marginLeft: '20px',
+    color: '#262626',
   },
   button: {
     width: '100%',
   },
   love: {
     width: 24,
-    margin: '0 10px',
+    margin: '0 20px',
   },
+  icon: {
+    fill: 'rgba(0, 0, 0, 0.5)'
+  }
 };
 
 const TodoItem = ({ ...props }) => (
@@ -31,6 +41,7 @@ const TodoItem = ({ ...props }) => (
   >
     <Checkbox
       style={styles.toggle}
+      iconStyle={styles.icon}
       onCheck={props.handleToggle}
       defaultChecked={props.completed}
     />
@@ -43,6 +54,7 @@ const TodoItem = ({ ...props }) => (
       checkedIcon={<ActionFavorite />}
       uncheckedIcon={<ActionFavoriteBorder />}
       style={styles.love}
+      iconStyle={styles.icon}
       defaultChecked={props.love}
       onCheck={props.handleLove}
     />

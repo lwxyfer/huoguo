@@ -18,7 +18,11 @@ import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
 
 const styles = {
+  entry: {
+    height: '100%',
+  },
   root: {
+    height: '100%',
     display: 'flex',
     flexWrap: 'no-wrap',
     justifyContent: 'space-between',
@@ -29,11 +33,14 @@ const styles = {
   },
   center: {
     width: '100%',
+    background: '#ff9966',
+    background: '-webkit-linear-gradient(to right, #ff5e62, #ff9966)',
+    background: 'linear-gradient(to right, #ff5e62, #ff9966)',
   }
 }
 
 const App = ({ match }) => (
-  <div>
+  <div style={styles.entry}>
     <div
       style={styles.root}
     >
@@ -43,7 +50,7 @@ const App = ({ match }) => (
         <AddTodo label="ADD" text="创建清单" page="list" />
       </div>
       <div style={styles.center}>
-        <Route exact path="/" render={() => <div>world</div>} />
+        <Route exact path="/" render={() => <Title title="do" />} />
         <Route path="/todo/:listId" component={TodosPage} />
       </div>
       <div style={styles.layout}>

@@ -8,6 +8,9 @@ import Footer from '../Footer';
 import AddTodo from '../AddTodo';
 import VisibleTodos from '../VisibleTodos';
 
+const styles = {
+  padding: '20px',
+}
 
 const iconStyle = {
   color: '#fff',
@@ -18,7 +21,7 @@ const Icon = (
 );
 
 export const TodosPage = ({ match }) => (
-  <div>
+  <div style={styles}>
     <Title
       title="Todos"
       showMenuIconButton={false}
