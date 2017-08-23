@@ -19,8 +19,8 @@ const styles = {
     background: '#fff',
   },
   toggle: {
-    maxWidth: '50px',
-    marginLeft: '20px',
+    maxWidth: '35px',
+    marginLeft: '15px',
     color: '#262626',
   },
   button: {

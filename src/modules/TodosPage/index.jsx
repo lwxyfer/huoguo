@@ -7,9 +7,31 @@ import Title from '../../common/Title';
 import Footer from '../Footer';
 import AddTodo from '../AddTodo';
 import VisibleTodos from '../VisibleTodos';
+import DetailSetting from '../DetailSetting';
 
 const styles = {
-  padding: '20px',
+  wrap: {
+    display: 'flex',
+    height: '100%'
+  },
+  main: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
+    height: '100%',
+    overflow: 'auto',
+  },
+  content: {
+    flex: 1,
+    padding: '20px',
+    overflow: 'auto',
+    background: '#ff9966',
+    background: '-webkit-linear-gradient(to right, #ff5e62, #ff9966)',
+    background: 'linear-gradient(to right, #ff5e62, #ff9966)',
+  },
+  sidebar: {
+    width: '310px'
+  }
 }
 
 const iconStyle = {
@@ -21,20 +43,26 @@ const Icon = (
 );
 
 export const TodosPage = ({ match }) => (
-  <div style={styles}>
-    <Title
-      title="Todos"
-      showMenuIconButton={false}
-        /*iconElementLeft={Icon}*/     
-    />
-    <AddTodo
-      label="Next"
-      text="添加任务"
-      selectIndex={match.params.listId}
-      page="todo"
-    />
-    <VisibleTodos selectIndex={match.params.listId} />
-    <Footer />
+  <div style={styles.wrap}>
+    <div style={styles.main}>
+      <Title
+        title="Todos"
+        showMenuIconButton={false}
+      />
+      <div style={styles.content}>
+        <AddTodo
+          label="Next"
+          text="添加任务"
+          selectIndex={match.params.listId}
+          page="todo"
+        />
+        <VisibleTodos selectIndex={match.params.listId} />
+        <Footer />
+      </div>
+    </div>
+    <div style={styles.sidebar}>
+      <DetailSetting />
+    </div>
   </div>
 );
 

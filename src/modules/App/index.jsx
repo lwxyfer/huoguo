@@ -1,5 +1,4 @@
 import React from 'react';
-import { GridList, GridTile } from 'material-ui/GridList';
 import Title from '../../common/Title';
 import AddTodo from '../AddTodo';
 import Lists from '../Lists';
@@ -33,9 +32,6 @@ const styles = {
   },
   center: {
     width: '100%',
-    background: '#ff9966',
-    background: '-webkit-linear-gradient(to right, #ff5e62, #ff9966)',
-    background: 'linear-gradient(to right, #ff5e62, #ff9966)',
   }
 }
 
@@ -45,16 +41,13 @@ const App = ({ match }) => (
       style={styles.root}
     >
       <div style={styles.layout}>
-        <Title title="List" />
+        <Title title="Lists" />
         <Lists />
         <AddTodo label="ADD" text="创建清单" page="list" />
       </div>
       <div style={styles.center}>
         <Route exact path="/" render={() => <Title title="do" />} />
         <Route path="/todo/:listId" component={TodosPage} />
-      </div>
-      <div style={styles.layout}>
-        <DetailSetting />
       </div>
     </div>
   </div>
