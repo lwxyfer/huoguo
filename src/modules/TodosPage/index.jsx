@@ -9,6 +9,8 @@ import AddTodo from '../AddTodo';
 import VisibleTodos from '../VisibleTodos';
 import DetailSetting from '../DetailSetting';
 
+import { addtodo } from '../../actions';
+
 const styles = {
   wrap: {
     display: 'flex',
@@ -50,12 +52,7 @@ export const TodosPage = ({ match }) => (
         showMenuIconButton={false}
       />
       <div style={styles.content}>
-        <AddTodo
-          label="Next"
-          text="添加任务"
-          selectIndex={match.params.listId}
-          page="todo"
-        />
+        <AddTodo />
         <VisibleTodos selectIndex={match.params.listId} />
         <Footer />
       </div>

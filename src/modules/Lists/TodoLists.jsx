@@ -7,26 +7,31 @@ import {
 } from 'react-router-dom';
 
 import Item from './Item';
+import ContentInbox from 'material-ui/svg-icons/content/inbox';
 
-const TodoLists = ({ todolists, onTodoListsClick, onSetPage, listlength, todolength, selectIndex }) => (
+
+const TodoLists = ({ todolists, onTodoListsClick, onSetPage, listlength, todolength, selectIndex }) => {
+
+  // index = `Index:${index} -- Length: ${length}`;
+  return  (
   <List>
     <Subheader>你的清单：{listlength} </Subheader>
     {todolists.map(todolist =>
       <Link to={`/todo/${todolist.index}`} key={todolist.index}>
-        <Item
+        <ListItem
           key={todolist.index}
-          setList={() => {
+          onClick={() => {
             onTodoListsClick(todolist.index);
-            onSetPage('todo');
           }}
-          active={selectIndex === todolist.index}
-          length={todolist.todos.length || 0}
-          {...todolist}
+          primaryText={todolist.title}
+          rightIcon={<p>{todolength}</p>}
+          leftIcon={<ContentInbox />}
         />
       </Link>,
     )}
   </List>
-);
+  )
+};
 
 TodoLists.propTypes = {
   todolists: PropTypes.arrayOf(PropTypes.shape({

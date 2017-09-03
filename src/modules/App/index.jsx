@@ -4,12 +4,9 @@ import AddTodo from '../AddTodo';
 import Lists from '../Lists';
 import DetailSetting from '../DetailSetting';
 import TodosPage from '../TodosPage';
+import AddList from '../AddList';
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
@@ -35,6 +32,7 @@ const styles = {
   }
 }
 
+
 const App = ({ match }) => (
   <div style={styles.entry}>
     <div
@@ -43,7 +41,7 @@ const App = ({ match }) => (
       <div style={styles.layout}>
         <Title title="Lists" />
         <Lists />
-        <AddTodo label="ADD" text="创建清单" page="list" />
+        <AddList />
       </div>
       <div style={styles.center}>
         <Route exact path="/" render={() => <Title title="do" />} />
@@ -54,3 +52,4 @@ const App = ({ match }) => (
 );
 
 export default App;
+

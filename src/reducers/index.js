@@ -7,4 +7,4 @@ const todoApp = combineReducers({
 })
 
 
-export default todoApp
+export default todoApp;

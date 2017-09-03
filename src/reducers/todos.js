@@ -129,7 +129,14 @@ const defaultState = {
   selectIndex: 0,
   page: 'list',
   visibilityFilter: 'SHOW_ALL',
-  lists: [],
+  lists: [
+    {
+      index: "inbox",
+      title: "收件箱",
+      date: 1504437671473,
+      todos: []
+    }
+  ],
 };
 
 
@@ -146,7 +153,6 @@ const data = (state = defaultState, action) => {
       return oass({ page });
     case 'SET_VISIBILITY_FILTER':
       const visibilityFilter = action.filter;
-      console.log('reduceer', visibilityFilter);
       return oass({ visibilityFilter });
     case 'ADD_LIST':
     case 'ADD_TODO':
