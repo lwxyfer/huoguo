@@ -6,7 +6,7 @@ import TodoList from './TodoList';
 const getVisibleTodos = (allTodos, filter, selectIndex) => {
   // 防止报 ReferenceError 的错误，需要一个包装器
 
-  console.log('todos', allTodos, filter, selectIndex);
+  // console.log('todos', allTodos, filter, selectIndex);
 
   let todos = Array.isArray(allTodos.lists) &&
   allTodos.lists.filter(list =>
@@ -15,16 +15,17 @@ const getVisibleTodos = (allTodos, filter, selectIndex) => {
 
   todos = todos && todos.todos.length > 0 ? todos.todos : [];
 
-  switch (filter) {
-    case 'SHOW_ALL':
-      return todos;
-    case 'SHOW_COMPLETED':
-      return todos.filter(t => t.completed);
-    case 'SHOW_ACTIVE':
-      return todos.filter(t => !t.completed);
-    default:
-      throw new Error(`Unknown filter: ${filter}`);
-  }
+  return todos;
+  // switch (filter) {
+  //   case 'SHOW_ALL':
+  //     return todos;
+  //   case 'SHOW_COMPLETED':
+  //     return todos.filter(t => t.completed);
+  //   case 'SHOW_ACTIVE':
+  //     return todos.filter(t => !t.completed);
+  //   default:
+  //     throw new Error(`Unknown filter: ${filter}`);
+  // }
 };
 
 const mapStateToProps = (state, ownProps) => ({

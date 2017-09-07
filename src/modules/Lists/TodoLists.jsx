@@ -1,21 +1,17 @@
 import React, { PropTypes } from 'react';
-import { List, ListItem } from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
-
 import {
   Link,
 } from 'react-router-dom';
+import { List, ListItem } from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
 
-import Item from './Item';
 import ContentInbox from 'material-ui/svg-icons/content/inbox';
 
 
-const TodoLists = ({ todolists, onTodoListsClick, onSetPage, listlength, todolength, selectIndex }) => {
-
-  // index = `Index:${index} -- Length: ${length}`;
-  return  (
+const TodoLists = ({ todolists, onTodoListsClick }) => (
   <List>
-    <Subheader>你的清单：{listlength} </Subheader>
+    <Subheader>你的清单：{todolists.length} </Subheader>
+
     {todolists.map(todolist =>
       <Link to={`/todo/${todolist.index}`} key={todolist.index}>
         <ListItem
@@ -24,14 +20,13 @@ const TodoLists = ({ todolists, onTodoListsClick, onSetPage, listlength, todolen
             onTodoListsClick(todolist.index);
           }}
           primaryText={todolist.title}
-          rightIcon={<p>{todolength}</p>}
+          rightIcon={<p>{todolist.todos.length}</p>}
           leftIcon={<ContentInbox />}
         />
       </Link>,
     )}
   </List>
-  )
-};
+)
 
 TodoLists.propTypes = {
   todolists: PropTypes.arrayOf(PropTypes.shape({
@@ -39,10 +34,7 @@ TodoLists.propTypes = {
     todos: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired).isRequired,
-  onSetPage: PropTypes.func.isRequired,
   onTodoListsClick: PropTypes.func.isRequired,
-  listlength: PropTypes.number.isRequired,
-  todolength: PropTypes.number.isRequired,
 };
 
 export default TodoLists;
