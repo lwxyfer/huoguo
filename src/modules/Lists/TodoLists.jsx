@@ -13,17 +13,18 @@ const TodoLists = ({ todolists, onTodoListsClick }) => (
     <Subheader>你的清单：{todolists.length} </Subheader>
 
     {todolists.map(todolist =>
-      <Link to={`/todo/${todolist.index}`} key={todolist.index}>
+      /* <Link to={`/todo/${todolist.index}`} key={todolist.index}> */
         <ListItem
           key={todolist.index}
           onClick={() => {
+            console.log(Date.now())
             onTodoListsClick(todolist.index);
           }}
           primaryText={todolist.title}
           rightIcon={<p>{todolist.todos.length}</p>}
           leftIcon={<ContentInbox />}
         />
-      </Link>,
+      /*</Link>, */
     )}
   </List>
 )

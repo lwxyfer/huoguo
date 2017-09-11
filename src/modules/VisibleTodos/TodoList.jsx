@@ -9,7 +9,7 @@ import TodoItem from '../TodoItem';
 const TodoList = ({ todos, onTodoClick, onToggleLove, onTriggerClock, selectIndex }) => (
   <List>
     <Subheader>TODOS： { selectIndex }</Subheader>
-    {todos.map(todo =>
+    {todos.slice().reverse().map(todo =>
       <TodoItem
         key={todo.id}
         {...todo}
@@ -19,7 +19,8 @@ const TodoList = ({ todos, onTodoClick, onToggleLove, onTriggerClock, selectInde
       />,
     )}
   </List>
-);
+)
+
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({

@@ -29,8 +29,9 @@ const getVisibleTodos = (allTodos, filter, selectIndex) => {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  todos: getVisibleTodos(state.data, state.data.visibilityFilter, ownProps.selectIndex),
-  selectIndex: ownProps.selectIndex,
+  todos: getVisibleTodos(state.data, state.data.visibilityFilter, state.data.selectIndex),
+  // selectIndex: ownProps.selectIndex,
+  selectIndex: state.data.selectIndex,
 });
 
 const mapDispatchToProps = ({

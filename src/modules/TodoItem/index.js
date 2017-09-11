@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { GridList, GridTile } from 'material-ui/GridList';
-import Checkbox from 'material-ui/Checkbox';
 import RaisedButton from 'material-ui/RaisedButton';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+import Checkbox from '../../components/CheckBox';
 
 const styles = {
   root: {
@@ -19,8 +19,8 @@ const styles = {
     background: '#fff',
   },
   toggle: {
-    maxWidth: '35px',
     marginLeft: '15px',
+    marginRight: '5px',
     color: '#262626',
   },
   button: {
@@ -41,7 +41,6 @@ const TodoItem = ({ ...props }) => (
   >
     <Checkbox
       style={styles.toggle}
-      iconStyle={styles.icon}
       onCheck={props.handleToggle}
       defaultChecked={props.completed}
     />
@@ -51,12 +50,9 @@ const TodoItem = ({ ...props }) => (
       { props.text }
     </p>
     <Checkbox
-      checkedIcon={<ActionFavorite />}
-      uncheckedIcon={<ActionFavoriteBorder />}
-      style={styles.love}
-      iconStyle={styles.icon}
-      defaultChecked={props.love}
+      style={styles.toggle}
       onCheck={props.handleLove}
+      defaultChecked={props.love}
     />
   </div>
 );
